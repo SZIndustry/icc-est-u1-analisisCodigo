@@ -6,9 +6,7 @@ public class BenchmarKing {
 
     public BenchmarKing() {
         mOrdenamiento = new MetodosOrdenamiento();
-        int[] arreglo = generarArregloAleatorio(1
-        
-        000000000);
+        int[] arreglo = generarArregloAleatorio(100000);
 
         // Warm up JVM
         mOrdenamiento.burbujaTradicional(arreglo.clone());
