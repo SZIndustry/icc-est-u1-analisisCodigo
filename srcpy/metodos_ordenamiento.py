@@ -1,4 +1,4 @@
-class Metodos_ordenamiento:
+class MetodosOrdenamiento:
     def sort_bubble(self, array):
         arreglo = array.copy()
 
@@ -16,7 +16,7 @@ class Metodos_ordenamiento:
         for i in range(n):
             condicion = False
             
-            for j in range(j + 1, n-i-1):
+            for j in range(i + 1, n-i-1):
                 if arreglo[j] > arreglo[j+1]:
                     arreglo[j], arreglo[j+1] = arreglo[j+1], arreglo[j]
                     condicion = True
@@ -41,6 +41,27 @@ class Metodos_ordenamiento:
         
         return arreglo
 
+    def shell_sort(slef, array):
+        arreglo = array.copy()
+        n = len(arreglo)
+
+        gap = n // 2  # Comenzamos con un gap grande, luego lo reducimos
+        
+        while gap > 0:
+            # Realizamos un ordenamiento por inserción para cada sublista definida por el gap
+            for i in range(gap, n):
+                temp = arreglo[i]
+                j = i
+                # Insertamos el elemento en su posición adecuada dentro de la sublista
+                while j >= gap and arreglo[j - gap] > temp:
+                    arreglo[j] = arreglo[j - gap]
+                    j -= gap
+                arreglo[j] = temp
+            
+            # Reducimos el tamaño del gap
+            gap = gap // 2
+
+        return arreglo
 
 
 
