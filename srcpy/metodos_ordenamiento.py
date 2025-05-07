@@ -45,20 +45,18 @@ class MetodosOrdenamiento:
         arreglo = array.copy()
         n = len(arreglo)
 
-        gap = n // 2  # Comenzamos con un gap grande, luego lo reducimos
+        gap = n // 2  
         
         while gap > 0:
-            # Realizamos un ordenamiento por inserción para cada sublista definida por el gap
+            
             for i in range(gap, n):
                 temp = arreglo[i]
                 j = i
-                # Insertamos el elemento en su posición adecuada dentro de la sublista
                 while j >= gap and arreglo[j - gap] > temp:
                     arreglo[j] = arreglo[j - gap]
                     j -= gap
                 arreglo[j] = temp
             
-            # Reducimos el tamaño del gap
             gap = gap // 2
 
         return arreglo
